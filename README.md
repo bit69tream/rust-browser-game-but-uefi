@@ -22,3 +22,12 @@ after building everything you will see `game.efi` file and to run the game you w
 you can use [qemu](http://www.qemu.org) with [edk2 UEFI firmware](https://github.com/tianocore/edk2) or any computer with UEFI support on it's motherboard (tho it wasn't tested on real hardware, so feel free to create an issue)
 
 if you decided to use qemu with edk2 i can suggest using [uefi-run](https://github.com/Richard-W/uefi-run) for running everything.
+
+# controls
+
+| key                              | action                  |
+|----------------------------------|-------------------------|
+| <kbd>a</kbd>                     | move left by 10 pixels  |
+| <kbd>d</kbd>                     | move right by 10 pixels |
+| <kbd>space</kbd> or <kbd>w</kbd> | fire                    |
+| <kbd>p</kbd>                     | pause                   |
