@@ -27,7 +27,7 @@ if you decided to use qemu with edk2 i can suggest using [uefi-run](https://gith
 
 | key                              | action                  |
 |----------------------------------|-------------------------|
-| <kbd>a</kbd>                     | move left by 10 pixels  |
-| <kbd>d</kbd>                     | move right by 10 pixels |
+| <kbd>a</kbd>                     | move left by 20 pixels  |
+| <kbd>d</kbd>                     | move right by 20 pixels |
 | <kbd>space</kbd> or <kbd>w</kbd> | fire                    |
 | <kbd>p</kbd>                     | pause                   |
