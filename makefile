@@ -35,49 +35,49 @@ build: frontend.o backend.o
 
 .PHONY: frontend.o
 frontend.o: frontend.c
-	${CC}                           \
-		-I${EFIINC}                 \
-		-I${EFIINC}/x86_64          \
-		-pedantic					\
-		-Wall						\
-		-Wextra						\
-		-Wcast-align				\
-		-Wcast-qual					\
-		-Wdisabled-optimization		\
-		-Wformat=2					\
-		-Winit-self					\
-		-Wlogical-op				\
-		-Wmissing-declarations		\
-		-Wmissing-include-dirs		\
-		-Wredundant-decls			\
-		-Wshadow					\
-		-Wsign-conversion			\
-		-Wstrict-overflow=5			\
-		-Wswitch-default			\
-		-Wundef						\
-		-Werror						\
-		-Wunused					\
-		-mno-red-zone				\
-		-fpic						\
-		-std=c11					\
-		-Os							\
-		-fno-builtin				\
-		-fshort-wchar				\
-		-ffreestanding				\
-		-nostdlib                   \
-		-Wno-missing-declarations   \
-		-Wno-undef                  \
-		-Wno-redundant-decls        \
-		-fno-strict-aliasing        \
-		-fno-stack-protector        \
-		-fno-stack-check            \
-		-fno-merge-all-constants    \
-		-DCONFIG_x86_64             \
-		-DEFI_FUNCTION_WRAPPER      \
-		-DGNU_EFI_USE_MS_ABI        \
-		-maccumulate-outgoing-args  \
-		-D__KERNEL__                \
-		-c $^						\
+	${CC}                          \
+		-I${EFIINC}                \
+		-I${EFIINC}/x86_64         \
+		-pedantic                  \
+		-Wall                      \
+		-Wextra                    \
+		-Wcast-align               \
+		-Wcast-qual                \
+		-Wdisabled-optimization    \
+		-Wformat=2                 \
+		-Winit-self                \
+		-Wlogical-op               \
+		-Wmissing-declarations     \
+		-Wmissing-include-dirs     \
+		-Wredundant-decls          \
+		-Wshadow                   \
+		-Wsign-conversion          \
+		-Wstrict-overflow=5        \
+		-Wswitch-default           \
+		-Wundef                    \
+		-Werror                    \
+		-Wunused                   \
+		-mno-red-zone              \
+		-fpic                      \
+		-std=c11                   \
+		-Os                        \
+		-fno-builtin               \
+		-fshort-wchar              \
+		-ffreestanding             \
+		-nostdlib                  \
+		-Wno-missing-declarations  \
+		-Wno-undef                 \
+		-Wno-redundant-decls       \
+		-fno-strict-aliasing       \
+		-fno-stack-protector       \
+		-fno-stack-check           \
+		-fno-merge-all-constants   \
+		-DCONFIG_x86_64            \
+		-DEFI_FUNCTION_WRAPPER     \
+		-DGNU_EFI_USE_MS_ABI       \
+		-maccumulate-outgoing-args \
+		-D__KERNEL__               \
+		-c $^                      \
 		-o $@
 
 .PHONY: backend.o
