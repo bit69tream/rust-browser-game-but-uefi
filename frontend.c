@@ -18,14 +18,6 @@ struct framebuffer {
 
 #define clamp(v, min, max) ((v) > (max) ? (max) : (v) < (min) ? (min) : (v))
 
-bool memory_compare (const void *aptr, const void *bptr, size_t n) {
-	const unsigned char *a = aptr, *b = bptr;
-	for (size_t i = 0; i < n; i++) {
-		if (a [i] != b [i]) return false;
-	}
-	return true;
-}
-
 void framebuffer_set_pixel (uint32_t x, uint32_t y, uint32_t color) {
     *(uint32_t *)((uint32_t *)(global_framebuffer.base) + x + (y * global_framebuffer.pixels_per_scan_line)) = color;
 }
@@ -56,7 +48,7 @@ bool init_gop (EFI_SYSTEM_TABLE *table) {
     return true;
 }
 
-uint32_t abgr_to_argb (uint32_t color) {
+inline uint32_t abgr_to_argb (uint32_t color) {
     return (((color & 0xff000000))       |
             ((color & 0x00ff0000) >> 16) |
             ((color & 0x0000ff00))       |
