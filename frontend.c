@@ -52,6 +52,7 @@ uint32_t abgr_to_argb (uint32_t color) {
 
 #define clamp(v, min, max) ((v) > (max) ? (max) : (v) < (min) ? (min) : (v))
 #define MOVE_DELTA 20
+#define FPS 60.0
 
 EFI_STATUS efi_main (EFI_HANDLE image, EFI_SYSTEM_TABLE *table) {
     InitializeLib (image, table);
@@ -79,7 +80,7 @@ EFI_STATUS efi_main (EFI_HANDLE image, EFI_SYSTEM_TABLE *table) {
         /* read key */
         {
             table -> BootServices -> CreateEvent (EFI_EVENT_TIMER, 0, NULL, NULL, &timer_event);
-            table -> BootServices -> SetTimer (timer_event, TimerRelative, 10000000 / 60); /* wait for 1/60 seconds */
+            table -> BootServices -> SetTimer (timer_event, TimerRelative, 10000000 / (int)FPS); /* wait for 1/60 seconds */
 
             wait_list [0] = table -> ConIn -> WaitForKey;
             wait_list [1] = timer_event;
@@ -113,7 +114,7 @@ EFI_STATUS efi_main (EFI_HANDLE image, EFI_SYSTEM_TABLE *table) {
 
         /* render */
         {
-            next_frame (1.0 / 60.0);
+            next_frame (1.0 / FPS);
 
             for (uint32_t i = 0; i < game_display_width; i++) {
                 for (uint32_t j = 0; j < game_display_height; j++) {
